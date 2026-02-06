@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FAQ - Tumpat Community</title>
+    <meta name="description" content="Frequently asked questions about visiting and using Tumpat Community site.">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page-specific FAQ styles */
+        .faq-container { max-width: 980px; margin: 0 auto; }
+        details { background: transparent; border-radius: 8px; margin: 10px 0; padding: 12px 14px; }
+        summary { cursor: pointer; display:flex; align-items:center; justify-content:space-between; gap:12px; font-weight:600; padding:8px 6px; list-style:none; }
+        summary::marker { display:none; }
+        summary:focus { outline: none; }
+        summary .chev { transition: transform .25s ease; color:var(--primary); }
+        details[open] summary .chev { transform: rotate(90deg); }
+        .faq-body { padding-top:10px; color:var(--muted); line-height:1.55; }
+        .page-title { text-align:center; margin-bottom:18px; color:var(--primary); }
+        .section-header { margin-top:28px; color:var(--primary); }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-inner container">
+            <div class="logo">TUMPAT COMMUNITY</div>
+            <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutcommunity.html">About Community</a></li>
+                <li><a href="culture and heritage.html">Culture</a></li>
+                <li><a href="Nature&adventure.html">Nature</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="ThingstoDo.html">Things to Do</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="container faq-container">
+        <h2 class="page-title">Frequently Asked Questions</h2>
+
+        <!-- SECTION 1: General -->
+        <section class="fade-up">
+            <h3 class="section-header">General Information</h3>
+            <details>
+                <summary>What is the purpose of this website? <span class="chev">›</span></summary>
+                <div class="faq-body">This website is a centralized platform to connect Tumpat residents and Foreign Tourists about what our place offers from our food and traditional cultures, local news, upcoming events, tourism spots, and community resources.</div>
+            </details>
+            <details>
+                <summary>Is this the official government website? <span class="chev">›</span></summary>
+                <div class="faq-body">No, this is a community-run initiative designed to support locals and tourists. For official government matters, please contact the Tumpat District Council (MDT).</div>
+            </details>
+            <details>
+                <summary>How can I contact the website administrators? <span class="chev">›</span></summary>
+                <div class="faq-body">You can reach us via the form on our "Contact" page or email us directly at tumpatcommunity@gmail.com.</div>
+            </details>
+        </section>
+
+        <!-- SECTION 2: Community & Volunteering -->
+        <section class="fade-up">
+            <h3 class="section-header">Community & Volunteering</h3>
+            <details>
+                <summary>How can I become a volunteer? <span class="chev">›</span></summary>
+                <div class="faq-body">We are always looking for help with beach clean-ups and flood relief efforts. Check the "News" page for call-outs or register your interest on the Contact page.</div>
+            </details>
+            <details>
+                <summary>Can students join the volunteer programs? <span class="chev">›</span></summary>
+                <div class="faq-body">Absolutely! We encourage students from UiTM and local schools to join our programs to gain experience and contribute to society.</div>
+            </details>
+        </section>
+
+        <!-- SECTION 3: Tourism & Events -->
+        <section class="fade-up">
+            <h3 class="section-header">Tourism & Events</h3>
+            <details>
+                <summary>How can I list my event on this website? <span class="chev">›</span></summary>
+                <div class="faq-body">We welcome community submissions! Please send us the event details (date, time, venue, and poster) via the Contact page at least one week in advance.</div>
+            </details>
+            <details>
+                <summary>What is the best time to visit Tumpat? <span class="chev">›</span></summary>
+                <div class="faq-body">Tumpat is great all year round, but the dry season (February to September) is best for beach activities and river cruises.</div>
+            </details>
+            <details>
+                <summary>Is there public transport to the Sleeping Buddha? <span class="chev">›</span></summary>
+                <div class="faq-body">Yes, you can take a local bus or taxi from Kota Bharu. We recommend renting a car or using a ride-hailing app for easier access to all the temples.</div>
+            </details>
+        </section>
+
+        <!-- SECTION 4: Safety -->
+        <section class="fade-up">
+            <h3 class="section-header">Safety & Emergency</h3>
+            <details>
+                <summary>Where can I get updates on flood status? <span class="chev">›</span></summary>
+                <div class="faq-body">During the monsoon season (November - January), we post updates on our News page. For real-time alerts, please check the official News website.</div>
+            </details>
+            <details>
+                <summary>Who do I call for emergencies? <span class="chev">›</span></summary>
+                <div class="faq-body">For general emergencies, dial 999. For local district issues, you can contact the Tumpat District Office directly.</div>
+            </details>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--navy-900); color: white; padding: 20px; text-align: center; margin-top: 40px;">
+        <p>&copy; <span id="year"></span> Tumpat Community Website. Group Project IMS458.</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var btn = document.querySelector('.nav-toggle');
+        var nav = document.querySelector('.nav-links');
+        if(btn && nav){ btn.addEventListener('click', function(){ nav.classList.toggle('open'); }); }
+        var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }}); },{threshold:0.12});
+        document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    });
+    </script>
+
+</body>
+</html>

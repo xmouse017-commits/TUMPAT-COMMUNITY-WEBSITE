@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tumpat Community Portal — culture, nature, food and local news.">
+    <title>Tumpat Community Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-inner container">
+            <div class="logo">TUMPAT COMMUNITY</div>
+            <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="aboutcommunity.html">About Community</a></li>
+                <li><a href="culture and heritage.html">Culture</a></li>
+                <li><a href="Nature&adventure.html">Nature</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="ThingstoDo.html">Things to Do</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>WELCOME TO TUMPAT</h1>
+            <p>Where Culture Meets Serenity | The Hidden Gem of Kelantan</p>
+            <a href="aboutcommunity.html" class="cta-button">Explore Community</a>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <h2>Our Community Hub</h2>
+            <p>"A centralized platform connecting residents, showcasing local heritage, and strengthening our community bond."</p>
+        </div>
+    </section>
+
+    <section class="highlights">
+        <div class="container">
+            <div class="grid-container">
+                <div class="card">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Culture & Heritage</h3>
+                    <p>Discover the history of Sleeping Buddha & local mosques.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Nature & Adventure</h3>
+                    <p>Experience the beauty of Pantai Sri Tujuh & islands.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Local Food</h3>
+                    <p>Taste the authentic delicacies of Tumpat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Tumpat Community Website. Group 3 Project.</p>
+            <p>UiTM Faculty of Information Science</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var btn = document.querySelector('.nav-toggle');
+        var nav = document.querySelector('.nav-links');
+        if(btn && nav){ btn.addEventListener('click', function(){ nav.classList.toggle('open'); }); }
+        var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }}); },{threshold:0.12});
+        document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food - Tumpat Community</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Navy-blue moodboard palette */
+            --maroon: #0B2340; /* primary navy */
+            --gold: #3B5A78;   /* muted slate/secondary */
+            --cream: #E9E9E6;  /* pale neutral */
+            --dark: #071427;   /* very dark navy for text */
+            --light-gray: #F3F4F5;
+        }
+
+        body {
+            font-family: 'Poppins', 'Roboto', Arial, sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--maroon);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 32px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-items {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-items a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .nav-items a:hover {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(201, 162, 39, 0.5);
+        }
+
+        .submit-btn {
+            background-color: var(--gold);
+            color: var(--maroon);
+            border: 2px solid var(--gold);
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Replace with a Kelantan food photo placed at picture/kelantan food.jpg */
+            background: linear-gradient(180deg, rgba(7,20,39,0.45) 0%, rgba(7,20,39,0.45) 100%),
+                url('picture/kelantan%20food.jpg');
+            background-size: cover;
+            background-position: center right;
+            color: var(--cream);
+            padding: 100px 40px;
+            text-align: left;
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--cream);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            color: #f0e6d2;
+            line-height: 1.5;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .search-bar input {
+            padding: 14px 18px;
+            border: 2px solid var(--gold);
+            background-color: rgba(255, 246, 229, 0.95);
+            color: var(--dark);
+            border-radius: 8px;
+            font-size: 14px;
+            flex: 1;
+            min-width: 200px;
+            transition: all 0.3s;
+        }
+
+        .search-bar input::placeholder {
+            color: #999;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(201, 162, 39, 0.5);
+        }
+
+        .search-bar select {
+            padding: 14px 18px;
+            border: 2px solid var(--gold);
+            background-color: rgba(255, 246, 229, 0.95);
+            color: var(--dark);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .search-btn {
+            padding: 14px 25px;
+            background-color: var(--gold);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .search-btn:hover {
+            background-color: var(--cream);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 162, 39, 0.4);
+        }
+
+        /* Sections */
+        section {
+            scroll-margin-top: 100px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            color: var(--maroon);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-header .badge {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--maroon);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Featured Food Section */
+        .featured-section {
+            padding: 80px 40px;
+            background-color: #fff;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .food-card {
+            background: linear-gradient(135deg, var(--cream) 0%, #fff 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(122, 31, 31, 0.1);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .food-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(122, 31, 31, 0.2);
+            border-color: var(--gold);
+        }
+
+        .food-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--maroon) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .food-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .food-card-image.yellow { background: linear-gradient(135deg, #f4d34a 0%, #d4a430 100%); }
+        .food-card-image.teal { background: linear-gradient(135deg, #5fb4ab 0%, #3a8070 100%); }
+        .food-card-image.pink { background: linear-gradient(135deg, #f08d9a 0%, #d4526a 100%); }
+        .food-card-image.green { background: linear-gradient(135deg, #a4c84a 0%, #78a030 100%); }
+        .food-card-image.orange { background: linear-gradient(135deg, #e67e22 0%, #c0592d 100%); }
+
+        .food-card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--maroon);
+            color: var(--cream);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .food-card-content {
+            padding: 25px;
+        }
+
+        .food-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        .food-card-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .food-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .price-range {
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .rating {
+            color: var(--maroon);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Specialties Section */
+        .specialties-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(122, 31, 31, 0.05) 0%, rgba(201, 162, 39, 0.05) 100%);
+        }
+
+        .specialty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .specialty-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border-left: 4px solid var(--gold);
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(122, 31, 31, 0.15);
+        }
+
+        .specialty-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .specialty-card h3 {
+            font-size: 18px;
+            color: var(--maroon);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .specialty-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Best Places Section */
+        .places-section {
+            padding: 80px 40px;
+            background-color: #fff;
+        }
+
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .place-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            background: #fff;
+        }
+
+        .place-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(122, 31, 31, 0.2);
+        }
+
+        .place-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--maroon) 0%, var(--gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(255, 246, 229, 0.3);
+        }
+
+        .place-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .place-info {
+            padding: 25px;
+        }
+
+        .place-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        .place-details {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .place-details strong {
+            color: var(--maroon);
+        }
+
+        .place-badge-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .place-badge {
+            font-size: 11px;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            background-color: var(--light-gray);
+            color: var(--maroon);
+        }
+
+        /* Recipes Section */
+        .recipes-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(122, 31, 31, 0.05) 0%, rgba(201, 162, 39, 0.05) 100%);
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .recipe-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(122, 31, 31, 0.15);
+        }
+
+        .recipe-header {
+            height: 180px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--maroon) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
+        }
+
+        .difficulty {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: var(--cream);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .recipe-content {
+            padding: 25px;
+        }
+
+        .recipe-content h3 {
+            font-size: 19px;
+            color: var(--maroon);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .recipe-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .recipe-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 80px 40px;
+            background-color: #fff;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: linear-gradient(135deg, var(--cream) 0%, #fff 100%);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(122, 31, 31, 0.15);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: var(--maroon);
+            font-size: 16px;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .review-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .review-footer {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(122, 31, 31, 0.1) 0%, rgba(201, 162, 39, 0.1) 100%);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-option {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .contact-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(122, 31, 31, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .contact-option h3 {
+            font-size: 20px;
+            color: var(--maroon);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .contact-btn {
+            background-color: var(--gold);
+            color: var(--maroon);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--maroon);
+            color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--maroon);
+            color: var(--cream);
+            text-align: center;
+            padding: 30px 40px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--gold);
+            margin-top: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .featured-grid, .specialty-grid, .places-grid, .recipe-grid, .review-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-inner container">
+            <div class="logo">TUMPAT COMMUNITY</div>
+            <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutcommunity.html" class="active">About Community</a></li>
+                <li><a href="culture and heritage.html">Culture</a></li>
+                <li><a href="Nature&adventure.html">Nature</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="ThingstoDo.html">Things to Do</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">From Warung to Heritage</div>
+            <h1>Discover Authentic Kelantanese Flavours</h1>
+            <p>Experience the unique culinary culture of Tumpat, Kelantan. From traditional dishes to hidden gems, explore the taste of authentic heritage in every bite.</p>
+            <div style="margin-top:30px; display:flex; gap:12px;">
+                <a href="#visit" class="submit-btn" style="border-radius:8px; padding:12px 20px; text-decoration:none;">Plan Your Visit</a>
+                <a href="#events" class="submit-btn" style="border-radius:8px; padding:12px 20px; text-decoration:none;">Events & Festivals</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Food Section -->
+    <section id="food">
+        <div style="padding: 80px 40px; background-color: #fff;">
+            <div class="section-header">
+                <span class="badge">🌟 Featured Food</span>
+                <h2>Iconic Tumpat Dishes</h2>
+                <p>Must-try traditional dishes that define the culinary identity of Tumpat. Each dish carries the taste of heritage and authenticity.</p>
+            </div>
+
+            <div class="featured-grid">
+                <div class="food-card">
+                    <div class="food-card-image yellow">
+        <header class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)), url('picture/nasi%20dagang%20kelantan.png');">
+            <div class="header-overlay">
+                <div class="hero-inner container" style="display:flex; align-items:center; justify-content:space-between; gap:1rem;">
+                    <div style="flex:1">
+                        <div class="hero-kicker">From Warung to Heritage</div>
+                        <h1>Discover Authentic Kelantanese Flavours</h1>
+                        <p class="hero-lead">Experience the unique culinary culture of Tumpat. From traditional dishes to hidden gems, explore the taste of authentic heritage in every bite.</p>
+                        <div class="hero-ctas">
+                            <a class="btn" href="#dishes">Plan Your Visit</a>
+                            <a class="btn btn-outline" href="#places">Find A Warung</a>
+                        </div>
+                    </div>
+                    <div style="flex:0.6; text-align:right"><div class="tile-badge">Food</div></div>
+                </div>
+            </div>
+        </header>
+                    </div>
+                    <div class="food-card-content">
+                        <div class="food-card-title">Ayam Percik Kelantan</div>
+                        <div class="food-card-desc">Charcoal-grilled chicken glazed in fragrant coconut-spice sauce — a community favourite.</div>
+                        <div class="food-card-footer">
+                            <a href="#" style="color:var(--maroon); font-weight:700; text-decoration:none;">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card">
+                    <div class="food-card-image yellow">
+                        <img src="picture/ayam%20percik%20kelantan.jpg" alt="Ayam Percik Kelantan" loading="lazy">
+                        <span class="food-card-badge">Community Favourite</span>
+                    </div>
+                    <div class="food-card-content">
+                        <div class="food-card-title">Laksam</div>
+                        <div class="food-card-desc">Soft rolled rice noodles in a silky coconut gravy — a classic comfort dish.</div>
+                        <div class="food-card-footer">
+                            <a href="#" style="color:var(--maroon); font-weight:700; text-decoration:none;">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card">
+                    <div class="food-card-image orange">
+                        <img src="picture/keropok%20lekor%20kelantan.jpg" alt="Keropok Lekor">
+                        <span class="food-card-badge">Street Food</span>
+                    </div>
+                    <div class="food-card-content">
+                        <div class="food-card-title">Keropok Lekor</div>
+                        <div class="food-card-desc">Handmade fish rolls, a beloved snack sold by coastal vendors — iconic to Kelantan.</div>
+                        <div class="food-card-footer">
+                            <a href="#" style="color:var(--maroon); font-weight:700; text-decoration:none;">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-card">
+                    <div class="food-card-image yellow">
+                        <img src="picture/pulut%20pagi.jpg" alt="Pulut Pagi">
+                        <span class="food-card-badge">Dessert</span>
+                    </div>
+                    <div class="food-card-content">
+                        <div class="food-card-title">Pulut Pagi</div>
+                        <div class="food-card-desc">Sweet glutinous rice with gula melaka — a comforting local breakfast treat.</div>
+                        <div class="food-card-footer">
+                            <a href="#" style="color:var(--maroon); font-weight:700; text-decoration:none;">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Specialties Section -->
+    <section style="padding: 80px 40px; background: linear-gradient(135deg, rgba(122, 31, 31, 0.05) 0%, rgba(201, 162, 39, 0.05) 100%);">
+        <div class="section-header">
+            <span class="badge">🎯 Local Specialties</span>
+            <h2>What Makes Tumpat Special</h2>
+            <p>Unique ingredients and cooking traditions that define Tumpat's culinary identity.</p>
+        </div>
+
+        <div class="specialty-grid">
+            <div class="specialty-card">
+                <div class="specialty-icon">🥄</div>
+                <h3>Budu & Ulam</h3>
+                <p>Fermented fish sauce paired with fresh herbs. The heart of Kelantanese cuisine.</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">🌍</div>
+                <h3>Thai Influence</h3>
+                <p>Border culture brings unique spice blends and cooking techniques from across the Siam border.</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">🐟</div>
+                <h3>Fresh Seafood</h3>
+                <p>Direct from Pantai Geting. The finest fish and shellfish prepared traditional style.</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">🍪</div>
+                <h3>Traditional Desserts</h3>
+                <p>Handmade kuih including nekbat, jala mas, and more. Sweet heritage in every bite.</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">🫘</div>
+                <h3>Solok Lada</h3>
+                <p>Peppers stuffed with fish and spices, a signature Kelantanese side dish.</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">🔥</div>
+                <h3>Somtam Kelate</h3>
+                <p>Papaya salad with fiery spices and lime. The perfect balance of flavors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Places to Eat Section -->
+    <section style="padding: 80px 40px; background-color: #fff;">
+        <div class="section-header">
+            <span class="badge">📍 Best Places to Eat</span>
+            <h2>Discover Tumpat's Food Spots</h2>
+            <p>From bustling markets to charming warungs, find the best places to experience authentic Tumpat cuisine.</p>
+        </div>
+
+        <div class="places-grid">
+            <div class="place-card">
+                <div class="place-image"> <img src="picture/pulut%20pagi.jpg" alt="Pulut Pagi"></div>
+                <div class="place-info">
+                    <div class="place-name">Pasar Besar Tumpat</div>
+                    <div class="place-details">⏰ 5:00 AM - 2:00 PM</div>
+                    <div class="place-details">💰 <strong>Budget Friendly</strong></div>
+                    <div class="place-details">👥 High Crowd</div>
+                    <div class="place-badge-row">
+                        <span class="place-badge">🍚 Food Court</span>
+                        <span class="place-badge">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image"> <img src="picture/pantai%20sri%20tujuh.jpg" alt="Pantai Sri Tujuh"></div>
+                <div class="place-info">
+                    <div class="place-name">Pantai Sri Tujuh</div>
+                    <div class="place-details">⏰ 10:00 AM - 11:00 PM</div>
+                    <div class="place-details">💰 <strong>Moderate</strong></div>
+                    <div class="place-details">👥 Moderate Crowd</div>
+                    <div class="place-badge-row">
+                        <span class="place-badge">🐟 Seafood</span>
+                        <span class="place-badge">⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image"> <img src="picture/pengkalan-kubur.jpg" alt="Pengkalan Kubor"></div>
+                <div class="place-info">
+                    <div class="place-name">Pengkalan Kubor</div>
+                    <div class="place-details">⏰ 7:00 AM - 8:00 PM</div>
+                    <div class="place-details">💰 <strong>Budget Friendly</strong></div>
+                    <div class="place-details">👥 High Crowd</div>
+                    <div class="place-badge-row">
+                        <span class="place-badge">🍜 Noodles</span>
+                        <span class="place-badge">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image"> <img src="picture/sddefault.jpg" alt="Wakaf Bharu Warung"></div>
+                <div class="place-info">
+                    <div class="place-name">Wakaf Bharu Warung</div>
+                    <div class="place-details">⏰ 6:00 AM - 10:00 PM</div>
+                    <div class="place-details">💰 <strong>Moderate</strong></div>
+                    <div class="place-details">👥 Low Crowd</div>
+                    <div class="place-badge-row">
+                        <span class="place-badge">👨‍🍳 Authentic</span>
+                        <span class="place-badge">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image"> <img src="picture/kampung%20geting%20stale.jpg" alt="Kampung Geting Stalls"></div>
+                <div class="place-info">
+                    <div class="place-name">Kampung Geting Stalls</div>
+                    <div class="place-details">⏰ 3:00 PM - 9:00 PM</div>
+                    <div class="place-details">💰 <strong>Budget Friendly</strong></div>
+                    <div class="place-details">👥 Moderate Crowd</div>
+                    <div class="place-badge-row">
+                        <span class="place-badge">🥘 Traditional</span>
+                        <span class="place-badge">⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image"> <img src="picture/pantai%20geting.jpg" alt="Pantai Geting Seafood"></div>
+                <div class="place-info">
+                    <div class="place-name">Pantai Geting Seafood</div>
+                    <div class="place-details">⏰ 10:00 AM - 10:00 PM</div>
+                    <div class="place-details">💰 <strong>Moderate-Upscale</strong></div>
+                    <div class="place-details">👥 Low-Moderate Crowd</div>
+                    <div class="place-badge-row">
+                        <span class="place-badge">🐢 Fresh Daily</span>
+                        <span class="place-badge">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipes Section -->
+    <section style="padding: 80px 40px; background: linear-gradient(135deg, rgba(122, 31, 31, 0.05) 0%, rgba(201, 162, 39, 0.05) 100%);">
+        <div class="section-header">
+            <span class="badge">👨‍🍳 Recipes Corner</span>
+            <h2>Cook Tumpat Dishes at Home</h2>
+            <p>Simple guides to recreate authentic Tumpat flavors in your own kitchen.</p>
+        </div>
+
+        <div class="recipe-grid">
+            <div class="recipe-card">
+                <div class="recipe-header">🥄
+                    <span class="difficulty">Easy</span>
+                </div>
+                <div class="recipe-content">
+                    <h3>Budu Sauce Preparation</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 30 mins</span>
+                        <span>👥 Serves 4</span>
+                    </div>
+                    <p style="font-size: 13px; color: #666;">Master the art of making authentic budu sauce from fermented fish and spices. Essential for every Kelantanese dish.</p>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-header">🍚
+                    <span class="difficulty">Medium</span>
+                </div>
+                <div class="recipe-content">
+                    <h3>Blue Rice for Nasi Kerabu</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 45 mins</span>
+                        <span>👥 Serves 6</span>
+                    </div>
+                    <p style="font-size: 13px; color: #666;">Create the signature blue color using butterfly pea flowers. Learn the traditional cooking technique.</p>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-header">🍮
+                    <span class="difficulty">Medium</span>
+                </div>
+                <div class="recipe-content">
+                    <h3>Oven Akok Recipe</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 60 mins</span>
+                        <span>👥 Makes 12</span>
+                    </div>
+                    <p style="font-size: 13px; color: #666;">Traditional sweet steamed cake with modern oven adaptation. Perfect with afternoon tea.</p>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-header">🥣
+                    <span class="difficulty">Easy</span>
+                </div>
+                <div class="recipe-content">
+                    <h3>Laksam White Gravy</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 35 mins</span>
+                        <span>👥 Serves 5</span>
+                    </div>
+                    <p style="font-size: 13px; color: #666;">Creamy coconut curry sauce with turmeric and lemongrass. The soul of laksam.</p>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-header">🔪
+                    <span class="difficulty">Medium</span>
+                </div>
+                <div class="recipe-content">
+                    <h3>Solok Lada Stuffing</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 50 mins</span>
+                        <span>👥 Serves 4</span>
+                    </div>
+                    <p style="font-size: 13px; color: #666;">Spiced fish mixture to stuff green peppers. A beloved Kelantanese side dish.</p>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-header">🍤
+                    <span class="difficulty">Easy</span>
+                </div>
+                <div class="recipe-content">
+                    <h3>Keropok Lekor Sauce</h3>
+                    <div class="recipe-meta">
+                        <span>⏱️ 25 mins</span>
+                        <span>👥 Serves 4</span>
+                    </div>
+                    <p style="font-size: 13px; color: #666;">Spicy peanut dipping sauce that perfectly complements crispy keropok lekor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews & Stories Section -->
+    <section style="padding: 80px 40px; background-color: #fff;">
+        <div class="section-header">
+            <span class="badge">💬 Reviews & Stories</span>
+            <h2>Community Experiences</h2>
+            <p>Discover what visitors and food lovers say about Tumpat's culinary journey.</p>
+        </div>
+
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Ahmad Hassan</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-text">"The nasi kerabu at Pasar Besar Tumpat is absolutely authentic. Every bite takes me back to my childhood. Must visit when in Kelantan!"</div>
+                <div class="review-footer">Visited: February 2024 • Local Food Blogger</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Siti Nurhaliza</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-text">"Best ayam percik I've ever had! The charcoal grilling technique at Wakaf Bharu gives it such an incredible flavor. Highly recommend!"</div>
+                <div class="review-footer">Visited: January 2024 • Food Enthusiast</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Rahim Ali</div>
+                    <div class="review-stars">★★★★⭐</div>
+                </div>
+                <div class="review-text">"The seafood at Pantai Geting is incredibly fresh. Tried the grilled fish and it was prepared to perfection. Worth every ringgit!"</div>
+                <div class="review-footer">Visited: December 2023 • Tourist</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Nurul Izzah</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-text">"Laksam at Pengkalan Kubor is a hidden gem! The gravy is so creamy and the rolled noodles are perfectly soft. Coming back next week!"</div>
+                <div class="review-footer">Visited: January 2024 • Food Critic</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Fauziah Mohamed</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-text">"The keropok lekor at Kampung Geting is crispy, light, and absolutely delicious. The peanut sauce is the perfect complement!"</div>
+                <div class="review-footer">Visited: November 2023 • Regular Customer</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-name">Hassan Ibrahim</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-text">"This website helped me discover authentic Tumpat food. Every recommendation has been spot-on. Thank you for preserving our food heritage!"</div>
+                <div class="review-footer">Visited: January 2024 • Community Member</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="padding: 80px 40px; background: linear-gradient(135deg, rgba(122, 31, 31, 0.1) 0%, rgba(201, 162, 39, 0.1) 100%);">
+        <div class="section-header">
+            <span class="badge">📞 Get in Touch</span>
+            <h2>Order, Cater & Connect</h2>
+            <p>Find your favorite dishes, arrange catering, or connect with local vendors.</p>
+        </div>
+
+        <div class="contact-options">
+            <div class="contact-option">
+                <div class="contact-icon">📱</div>
+                <h3>WhatsApp Order</h3>
+                <p>Connect directly with local vendors and food stalls. Place your order and get fresh food delivered.</p>
+                <button class="contact-btn">Order Now</button>
+            </div>
+
+            <div class="contact-option">
+                <div class="contact-icon">🎉</div>
+                <h3>Catering Services</h3>
+                <p>Planning an event? We connect you with authentic Tumpat catering for your special occasions.</p>
+                <button class="contact-btn">Book Catering</button>
+            </div>
+
+            <div class="contact-option">
+                <div class="contact-icon">🚗</div>
+                <h3>Delivery Partners</h3>
+                <p>Quick delivery available through our trusted partners. Get your favorite dishes to your doorstep.</p>
+                <button class="contact-btn">Find Delivery</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>🍛 Rasa Tumpat</strong> – Discover Authentic Kelantanese Flavours</p>
+        <p>From Warung to Heritage – The Taste of Tumpat in One Place</p>
+        <div class="footer-note">© 2024 Rasa Tumpat. Preserving the soul of Tumpat through food. All rights reserved.</div>
+    </footer>
+</body>
+</html>

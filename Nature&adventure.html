@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nature & Adventure around Tumpat — photo spots, trails and events.">
+    <title>Explore Kelantan | Nature & Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    /* Testimonials / Influencer voices */
+    .voices { padding: 36px 0; }
+    .voices .section-title { margin-bottom: 18px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .testimony { background: var(--card); border-radius: 12px; padding: 18px; box-shadow: var(--shadow); display:flex; gap:12px; align-items:flex-start; }
+    .testimony .avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; flex:0 0 64px; box-shadow: 0 6px 18px rgba(2,6,23,0.06); }
+    .testimony .meta { flex:1; }
+    .testimony .meta h4 { margin:0 0 6px; font-size:1rem; color:var(--navy-900); }
+    .testimony .meta .byline { font-size:0.85rem; color:var(--muted); margin-bottom:8px; }
+    .testimony p.quote { margin:0; color:var(--muted); font-style:italic; }
+    .testimony .platform { margin-top:10px; font-size:0.85rem; color:var(--accent); font-weight:600; }
+    </style>
+    <nav class="navbar">
+        <div class="nav-inner container">
+            <div class="logo">TUMPAT COMMUNITY</div>
+            <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutcommunity.html">About Community</a></li>
+                <li><a href="culture and heritage.html">Culture</a></li>
+                <li><a href="Nature&adventure.html" class="active">Nature</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="ThingstoDo.html">Things to Do</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-hero" style="background-image: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.18)), url('gambar og/Jelawang%20waterfall.jpeg');">
+        <div class="hero-overlay">
+            <div class="hero-inner container">
+                <div style="flex:1">
+                    <h1>Nature & Adventure — Tumpat</h1>
+                    <p>Riverfront sunsets, coastal trails and photo-ready landscapes — top spots and local tips for outdoor explorers.</p>
+                    <div class="hero-ctas">
+                        <a class="btn" href="#spots">Top Spots</a>
+                        <a class="btn btn-outline" href="#map">Plan Route</a>
+                    </div>
+                </div>
+                <div style="flex:0.6; text-align:right">
+                    <div class="tile-badge">Outdoors</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="spots" class="fade-up">
+            <div class="tile-grid">
+                <article class="tile-card">
+                    <div class="tile-media" style="background-image:url('gambar og/Nenggiri.jpeg')"></div>
+                    <div class="tile-body"><h3>Nenggiri River</h3><p>White-water stretches and scenic rapids — excursions and rafting trips available.</p></div>
+                </article>
+
+                <article class="tile-card">
+                    <div class="tile-media" style="background-image:url('gambar og/Jelawang%20waterfall.jpeg')"></div>
+                    <div class="tile-body"><h3>Jelawang Waterfall</h3><p>Photogenic waterfall and swimming pools — great for nature hikes.</p></div>
+                </article>
+
+                <article class="tile-card">
+                    <div class="tile-media" style="background-image:url('gambar og/Pantai%20Sri%20Tujuh.jpeg')"></div>
+                    <div class="tile-body"><h3>Pantai Sri Tujuh</h3><p>Coastal beach perfect for kite-flying and sunset photography.</p></div>
+                </article>
+
+                <article class="tile-card">
+                    <div class="tile-media" style="background-image:url('gambar og/Dabong%20train.jpeg')"></div>
+                    <div class="tile-body"><h3>Scenic Train — Dabong</h3><p>Heritage train routes through lush scenery — unforgettable day trips.</p></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="featured-row fade-up">
+            <div class="featured-card">
+                <div class="media" style="background-image:url('gambar og/Gunung%20Stong.jpeg')"></div>
+                <div class="content"><h3>Gunung Stong Adventures</h3><p class="muted">Hiking, waterfalls and viewpoints — multi-day treks and guided routes available nearby.</p></div>
+            </div>
+            <aside class="featured-card">
+                <div class="media" style="background-image:url('gambar og/Kite%20maker.webp')"></div>
+                <div class="content"><h3>Local Experiences</h3><p class="muted">Join kite-making workshops, night markets and river festivals to experience local culture up close.</p></div>
+            </aside>
+        </section>
+
+        <section class="voices fade-up" aria-labelledby="voicesTitle" style="margin-top:1.25rem">
+            <h2 id="voicesTitle" class="section-title">Voices — What Visitors & Creators Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimony" role="article" aria-label="Testimonial from Malaysian travel creator">
+                    <img class="avatar" src="gambar og/Tumpat%20etty.jpeg" alt="Aisyah — Malaysian travel creator" loading="lazy">
+                    <div class="meta">
+                        <h4>Aisyah — Travel Creator (Malaysia)</h4>
+                        <div class="byline">Instagram: @aisyah_travels • 120k followers</div>
+                        <p class="quote">"Tumpat surprised me — the river festivals, food and warm people make it one of my favourite corners of Kelantan. The mangrove walks at sunset are pure magic."</p>
+                        <div class="platform">Featured review • Travel Malaysia</div>
+                    </div>
+                </div>
+
+                <div class="testimony" role="article" aria-label="Testimonial from international photographer">
+                    <img class="avatar" src="gambar og/Kelantan%20Backgorund.jpeg" alt="Liam Walker — travel photographer" loading="lazy">
+                    <div class="meta">
+                        <h4>Liam Walker — Travel Photographer (UK)</h4>
+                        <div class="byline">Website: liamwalker.photos • Portfolio</div>
+                        <p class="quote">"The light along the Nenggiri River and the traditional kites at Pantai Sri Tujuh offer unique frames for storytelling. Highly recommended for landscape photographers."</p>
+                        <div class="platform">Photo feature • International Lens</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-section fade-up" style="margin-top:1.25rem">
+            <h2>Related in Tumpat, Kelantan</h2>
+            <p class="muted">Curated places and events from around Tumpat.</p>
+            <div class="tile-grid">
+                <article class="tile-card" aria-label="Tumpat Mangrove Walks — boardwalks and wildlife">
+                    <div class="tile-media" style="background-image:url('gambar og/Tumpat%20mangrove%20walks.jpeg')" role="img" aria-hidden="true"></div>
+                    <div class="tile-body"><h3>Tumpat Mangrove Walks</h3><p>Boardwalks through serene mangroves — birdwatching and sunset views.</p></div>
+                </article>
+
+                <article class="tile-card" aria-label="Tumpat Floating Market — riverside vendors and local crafts">
+                    <div class="tile-media" style="background-image:url('gambar og/Tumpat%20floating%20market.jpeg')" role="img" aria-hidden="true"></div>
+                    <div class="tile-body"><h3>Tumpat Floating Market</h3><p>Vibrant riverside market with local produce, crafts and boatside vendors.</p></div>
+                </article>
+
+                <article class="tile-card" aria-label="Tumpat Mosque — landmark and community hub">
+                    <div class="tile-media" style="background-image:url('gambar og/Tumpat%20Mosque.jpeg')" role="img" aria-hidden="true"></div>
+                    <div class="tile-body"><h3>Tumpat Mosque</h3><p>Architectural landmark and community hub in Tumpat town.</p></div>
+                </article>
+
+                <article class="tile-card" aria-label="Local streets of Tumpat — photogenic town scenes">
+                    <div class="tile-media" style="background-image:url('gambar og/Tumpat%20etty.jpeg')" role="img" aria-hidden="true"></div>
+                    <div class="tile-body"><h3>Local Streets</h3><p>Photogenic town scenes and daily life in Tumpat.</p></div>
+                </article>
+
+                <article class="tile-card" aria-label="Discover Tumpat — gateway to culture and river activities">
+                    <div class="tile-media" style="background-image:url('gambar og/Tumpat.jpeg')" role="img" aria-hidden="true"></div>
+                    <div class="tile-body"><h3>Discover Tumpat</h3><p>Gateway to local culture, river activities and heritage sites.</p></div>
+                </article>
+
+                <article class="tile-card" aria-label="Sri Tanjung floating market — regional river trade">
+                    <div class="tile-media" style="background-image:url('gambar og/Sri%20Tanjung%20float%20market.jpg')" role="img" aria-hidden="true"></div>
+                    <div class="tile-body"><h3>Nearby Floating Trade</h3><p>Regional floating market scenes — closely tied to Tumpat's river trade.</p></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="map" class="fade-up" style="margin-top:1.25rem">
+            <h2>Plan Your Route</h2>
+            <div style="display:grid;gap:12px;margin-top:12px">
+                <iframe width="100%" height="420" frameborder="0" style="border:0" src="https://www.google.com/maps?q=Tumpat+Kelantan&output=embed" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Tumpat Adventure Guide | Kelantan, Malaysia</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var btn = document.querySelector('.nav-toggle');
+        var nav = document.querySelector('.nav-links');
+        if(btn && nav){ btn.addEventListener('click', function(){ nav.classList.toggle('open'); }); }
+        var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }}); },{threshold:0.12});
+        document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    });
+    </script>
+
+</body>
+</html>
+          
+
+    <footer id="footer">
+        <p>Explore the "Land of Lightning" | Kelantan, Malaysia</p>
+        <p>&copy; 2026 Nature & Adventure Web Project</p>
+    </footer>
+
+</body>
+</html>

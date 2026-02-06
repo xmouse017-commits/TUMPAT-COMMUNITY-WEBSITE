@@ -1,0 +1,517 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tumpat: The Ultimate Cultural Guide</title>
+    <link rel="stylesheet" href="style.css">
+        <nav class="navbar">
+            <div class="nav-inner container">
+                <div class="logo">TUMPAT COMMUNITY</div>
+                <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutcommunity.html">About Community</a></li>
+                    <li><a href="culture and heritage.html">Culture</a></li>
+                    <li><a href="Nature&adventure.html">Nature</a></li>
+                    <li><a href="food.html">Food</a></li>
+                    <li><a href="ThingstoDo.html">Things to Do</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    
+                </ul>
+            </div>
+        </nav>
+
+    <style>
+         :root {
+            /* Navy-blue moodboard palette */
+            --maroon: #0B2340; /* primary navy */
+            --gold: #3B5A78;   /* muted slate/secondary */
+            --cream: #E9E9E6;  /* pale neutral */
+            --dark: #071427;   /* very dark navy for text */
+            --light-gray: #F3F4F5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Header (image element) */
+        header {
+            position: relative;
+            height: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .header-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        header h1, header p { text-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+        header .hero-inner { background: transparent; position: relative; z-index: 1; }
+        header h1 { font-size: 2.4rem; margin: 0 0 8px 0; letter-spacing: 1px; text-transform: uppercase; }
+        header .lead { margin: 6px 0 12px; font-size: 1.05rem; opacity: 0.95; }
+
+        .hero-inner { text-align: center; max-width: 900px; padding: 20px; }
+        .hero-ctas { margin-top: 12px; display:flex; gap:12px; justify-content:center; }
+
+        .btn { display:inline-block; padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:700; color: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.15); transition: transform 120ms ease, box-shadow 120ms ease; }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-primary { background: linear-gradient(90deg,var(--primary), #0B2340); }
+        .btn-outline { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); }
+
+        /* Stats */
+        .stats-row { display:flex; gap:18px; justify-content: center; margin-bottom: 20px; }
+        .stat-card { background: white; padding: 14px 18px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); text-align:center; min-width:120px; }
+        .stat-number { font-size: 1.6rem; color: var(--primary); font-weight: 800; }
+        .stat-label { font-size:0.9rem; color:#666; margin-top:6px; }
+
+        /* Events */
+        .events-grid .event-card { background:white; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.06); transition: transform 180ms ease, box-shadow 180ms ease; }
+        .events-grid .event-card:hover { transform: translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,0.09); }
+        .event-meta { color:#888; font-size:0.85rem; margin:6px 0; }
+
+        /* Gallery hover */
+        .gallery-item { position: relative; overflow: hidden; border-radius: 10px; background: #ddd; }
+        .gallery-item img { width: 100%; height: 140px; object-fit: cover; display: block; transition: transform 260ms ease; }
+        .gallery-item:hover img { transform: scale(1.06); }
+        .gallery-item .overlay-credit { position:absolute; left:10px; bottom:10px; right:10px; border-radius:6px; padding:8px 10px; background: linear-gradient(transparent, rgba(0,0,0,0.5)); }
+
+        /* Lightbox */
+        .lightbox-modal { display: none; position: fixed; z-index: 2000; inset: 0; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 30px; }
+        .lightbox-modal .lb-img { max-width: 95%; max-height: 80vh; box-shadow: 0 10px 40px rgba(0,0,0,0.6); border-radius: 6px; }
+        .lightbox-modal .lb-caption { color: #fff; margin-top: 12px; font-size: 0.95rem; text-align: center; }
+        .lb-close { position: absolute; right: 18px; top: 18px; background: transparent; color: #fff; border: 0; font-size: 28px; cursor: pointer; }
+
+        /* Fallback / placeholder visuals */
+        .no-image { background: linear-gradient(135deg,#eef2f3,#d6d0c7); color:#666; display:flex; align-items:center; justify-content:center; font-weight:700; }
+        img.replaced { opacity:0.95; filter: saturate(0.98); }
+        .replacement-note { position:absolute; left:12px; bottom:12px; background: rgba(255,255,255,0.95); color:#333; padding:6px 8px; border-radius:6px; font-size:0.75rem; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+
+
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Main Content Grid */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .info-card:hover { transform: translateY(-5px); }
+
+        .card-img {
+            height: 200px;
+            background: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-body { padding: 20px; }
+        .card-body h3 { margin: 0 0 10px 0; color: var(--primary); }
+        .card-body ul { padding-left: 18px; font-size: 0.9rem; color: #555; }
+        .card-body li { margin-bottom: 8px; }
+
+        /* Map Section */
+        .map-section {
+            background: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header class="page-hero" role="img" aria-label="Panoramic view of Tumpat, Kelantan" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.36), rgba(0,0,0,0.12)), url('gambar og/Tumpat%20kelantan%20real.jpg');">
+        <div class="hero-overlay">
+            <div class="hero-inner container" style="display:flex; gap:1.5rem; align-items:center;">
+                <div style="flex:1">
+                    <h1 style="text-transform:uppercase; letter-spacing:2px;">Explore Tumpat</h1>
+                    <p class="lead" style="font-size:1.05rem; max-width:640px;">Discover river festivals, temples and coastal trails — local tips and top photo spots for adventurous travellers.</p>
+                    <div class="hero-ctas" style="margin-top:14px;">
+                        <a class="btn btn-primary" href="#photos">📸 Top Photo Spots</a>
+                        <a class="btn btn-outline" href="#map">🧭 Plan Your Route</a>
+                    </div>
+                </div>
+                <div style="flex:0.4; text-align:right">
+                    <div class="tile-badge">Tumpat • Kelantan</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="sub-nav container">
+        <a href="#temples">Spiritual Trail</a>
+        <a href="#coastal">Coastal & Local</a>
+        <a href="#map">Find Your Way</a>
+    </nav>
+
+    <main class="container">
+        
+        <div class="stats-row" aria-hidden="false">
+            <div class="stat-card">
+                <div class="stat-number" data-target="8">0</div>
+                <div class="stat-label">Temples</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="12">0</div>
+                <div class="stat-label">Photo Spots</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Events This Week</div>
+            </div>
+        </div>
+
+        <h2 class="section-header" id="temples">Iconic Spiritual Landmarks</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="card-img" style="background-image: url('gambar og/Sleeping%20Buddha%20kelantan.jpg')" data-src="gambar og/Sleeping%20Buddha%20kelantan.jpg" data-credit="Photo: Local community" data-fallback="gambar og/Sitting%20Buddha.jpeg" aria-label="Wat Phothivihan" role="button" tabindex="0"></div>
+                <div class="card-body">
+                    <h3>Wat Phothivihan</h3>
+                    <div class="credit">Photo: Local community</div> 
+                    <ul>
+                        <li>40-meter reclining Buddha (One of SE Asia's largest).</li>
+                        <li>Serene complex with a "Wheel of Dharma" shrine.</li>
+                        <li>Must-visit for spiritual peace and photos.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="card-img" style="background-image: url('gambar og/Sitting%20Buddha.jpeg')" data-src="gambar og/Sitting%20Buddha.jpeg" data-credit="Photo: Wat Machimmaram" data-fallback="gambar og/Sitting%20Buddha.jpeg" aria-label="Wat Machimmaram" role="button" tabindex="0"></div>
+                <div class="card-body">
+                    <h3>Wat Machimmaram</h3>
+                    <div class="credit">Photo: Wat Machimmaram</div>   
+                    <ul>
+                        <li>Towering Golden Sitting Buddha visible from afar.</li>
+                        <li>Blends Thai and Malay architectural styles.</li>
+                        <li>Features intricate granite carvings throughout.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="card-img" style="background-image: url('gambar og/Dragon%20boat%20tample.jpeg')" data-src="gambar og/Dragon%20boat%20tample.jpeg" data-credit="Photo: Dragon Boat Temple" data-fallback="gambar og/River%20boat%20parade.jpeg" aria-label="Wat MaiSuwanKiri" role="button" tabindex="0"></div>
+                <div class="card-body">
+                    <h3>Wat MaiSuwanKiri</h3>
+                    <div class="credit">Photo: Dragon Boat Temple</div> 
+                    <ul>
+                        <li>Famous for the magnificent "Dragon Boat" building.</li>
+                        <li>Highly detailed sculptures and vibrant colors.</li>
+                        <li>Located conveniently on the Temple Trail.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-header" id="coastal" style="margin-top: 60px;">Coastal & Local Experiences</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="card-img" style="background-image: url('gambar og/Pantai%20Cahaya%20bulan.jpeg')" data-src="gambar og/Pantai%20Cahaya%20bulan.jpeg" data-credit="Photo: Pantai Cahaya Bulan" data-fallback="gambar og/Pantai%20Sri%20Tujuh.jpeg" aria-label="Pantai Sri Tujuh" role="button" tabindex="0"></div>
+                <div class="card-body">
+                    <h3>Pantai Sri Tujuh</h3>
+                    <p>The "Beach of Seven Lagoons" at the northern tip of Kelantan.</p>
+                    <div class="credit">Photo: Pantai Cahaya Bulan</div> 
+                    <ul>
+                        <li>Great for Wau (kite) flying and picnics.</li>
+                        <li>Border vibes with Thailand.</li>
+                        <li>Amazing local snacks at the beach stalls.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="card-img" style="background-image: url('gambar og/Sri%20Tanjung%20float%20market.jpg')" data-src="gambar og/Sri%20Tanjung%20float%20market.jpg" data-credit="Photo: Sri Tanjung Floating Market" data-fallback="gambar og/Tumpat%20floating%20market.jpeg" aria-label="Sri Tanjung Floating Market" role="button" tabindex="0"></div>
+                <div class="card-body">
+                    <h3>Sri Tanjung Floating Market</h3>
+                    <p>Experience river commerce (Fri & Sat only).</p>
+                    <div class="credit">Photo: Sri Tanjung Floating Market</div> 
+                    <ul>
+                        <li>Buy fresh snacks from traditional wooden boats.</li>
+                        <li>Try fresh coconut water and keropok lekor.</li>
+                        <li>Incredible local, friendly atmosphere.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="card-img" style="background-image: url('gambar og/Tumpat.jpeg')" data-src="gambar og/Tumpat.jpeg" data-credit="Photo: Tumpat" data-fallback="gambar og/Kampung%20Laut.jpeg" aria-label="Kampung Laut Heritage" role="button" tabindex="0"></div>
+                <div class="card-body">
+                    <h3>Kampung Laut Heritage</h3>
+                    <p>The cultural soul of Tumpat.</p>
+                    <div class="credit">Photo: Tumpat</div> 
+                    <ul>
+                        <li>Home to one of the oldest wooden mosques in Malaysia.</li>
+                        <li>Handicraft center for local souvenirs.</li>
+                        <li>Stunning traditional Malay architecture.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-header" id="photos" style="margin-top: 60px;">Top Photo Spots 📸</h2>
+        <div class="gallery-grid" aria-label="Top photo spots in Tumpat">
+            <div class="gallery-item" data-src="gambar og/pasar%20tumpat.jpeg" data-credit="Pekan Tumpat Market" tabindex="0" aria-label="Pekan Tumpat Market photo">
+                    <img class="img-fit" src="gambar og/pasar%20tumpat.jpeg" alt="Pekan Tumpat Market" data-fallback="gambar og/Tumpat%20floating%20market.jpeg">
+                <div class="credit">Photo: Pekan Tumpat Market</div>
+            </div>
+
+            <div class="gallery-item" data-src="gambar og/Pantai%20Sri%20Tujuh.jpeg" data-credit="Pantai Sri Tujuh" tabindex="0" aria-label="Pantai Sri Tujuh photo">
+                <img class="img-fit" src="gambar og/Pantai%20Sri%20Tujuh.jpeg" alt="Pantai Sri Tujuh" data-fallback="gambar og/Kelantan%20Backgorund.jpeg">
+                <div class="credit">Photo: Pantai Sri Tujuh</div>
+            </div>
+
+            <div class="gallery-item" data-src="gambar og/Nenggiri.jpeg" data-credit="Nenggiri River" tabindex="0" aria-label="Nenggiri River photo">
+                <img class="img-fit" src="gambar og/Nenggiri.jpeg" alt="Nenggiri River" data-fallback="gambar og/Nenggiriri%20raft.jpeg">
+                <div class="credit">Photo: Nenggiri River</div>
+            </div>
+
+            <div class="gallery-item" data-src="gambar og/Kite%20maker.webp" data-credit="Traditional Kite Makers" tabindex="0" aria-label="Kite makers photo">
+                <img class="img-fit" src="gambar og/Kite%20maker.webp" alt="Kite makers" data-fallback="gambar og/Pantai%20Cahaya%20bulan.jpeg">
+                <div class="credit">Photo: Traditional Kite Makers</div>
+            </div>
+
+            <div class="gallery-item" data-src="gambar og/Nenggiriri%20raft.jpeg" data-credit="Nenggiri Rafting" tabindex="0" aria-label="Nenggiri rafting photo">
+                <img class="img-fit" src="gambar og/Nenggiriri%20raft.jpeg" alt="Nenggiri Raft" data-fallback="gambar og/Nenggiri.jpeg">
+                <div class="credit">Photo: Nenggiri Rafting</div>
+            </div>
+
+            <div class="gallery-item" data-src="gambar og/Dabong%20train.jpeg" data-credit="Dabong Scenic Train" tabindex="0" aria-label="Dabong scenic train photo">
+                <img class="img-fit" src="gambar og/Dabong%20train.jpeg" alt="Dabong Train" data-fallback="gambar og/Kelantan%20Backgorund.jpeg">
+                <div class="credit">Photo: Dabong Scenic Train</div>
+            </div>
+        </div>
+
+        <h2 class="section-header" style="margin-top: 60px;">What's On This Week 🎉</h2>
+        <div class="info-grid events-grid">
+            <div class="event-card" tabindex="0">
+                <div class="card-img" style="background-image:url('gambar og/River%20boat%20parade.jpeg')" data-src="gambar og/River%20boat%20parade.jpeg" data-credit="River Boat Parade — Local community" data-fallback="gambar og/Tumpat%20floating%20market.jpeg" role="button" aria-label="River Boat Parade"></div>
+                <div class="card-body">
+                    <h3>River Boat Parade</h3>
+                    <p class="event-meta">Sat • 7:00 AM • Free</p>
+                    <p>Colorful longboats and traditional music parade along the river front — great for photos and families.</p>
+                    <div class="credit">Photo: River Boat Parade — Local community</div>
+                </div>
+            </div>
+
+            <div class="event-card" tabindex="0">
+                <div class="card-img" style="background-image:url('gambar og/Tumpat%20floating%20market.jpeg')" data-src="gambar og/Tumpat%20floating%20market.jpeg" data-credit="Tumpat Floating Market — Local vendors" data-fallback="gambar og/Sri%20Tanjung%20float%20market.jpg" role="button" aria-label="Tumpat Floating Market"></div>
+                <div class="card-body">
+                    <h3>Floating Market</h3>
+                    <p class="event-meta">Fri • 6:00 AM • Local vendors</p>
+                    <p>Fresh produce, snacks, and friendly bargaining — great for sunrise photos and local flavor.</p>
+                    <div class="credit">Photo: Tumpat Floating Market — Local vendors</div>
+                </div>
+            </div> 
+
+            <div class="event-card" tabindex="0">
+                <div class="card-img" style="background-image:url('gambar og/Tumpat%20etty.jpeg')" data-src="gambar og/Tumpat%20etty.jpeg" data-credit="Community display" data-fallback="gambar og/Dragon%20boat%20tample.jpeg" role="button" aria-label="Dragon Boat Display"></div>
+                <div class="card-body">
+                    <h3>Dragon Boat Display</h3>
+                    <p class="event-meta">Sun • 2:00 PM • Family-friendly</p>
+                    <p>Traditional dragon boats and community performances — lively and colorful.</p>
+                    <div class="credit">Photo: Community display</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="map-section" id="map">
+        <h2>Plan Your Route</h2>
+        <p>All these gems are located within the Tumpat district. Use the map below to navigate.</p>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63514.45332219808!2d102.12879619198642!3d6.198270119851411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b6b0394039868f%3A0x401973b400782f0!2sTumpat%2C%20Kelantan!5e0!3m2!1sen!2smy!4v1700000000000!5m2!1sen!2smy" 
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Image preview">
+        <button class="lb-close" aria-label="Close">×</button>
+        <img class="lb-img" src="" alt="">
+        <div class="lb-caption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tumpat Adventure Guide | Kelantan, Malaysia</p>
+        <p>Experience the border-town charm!</p>
+    </footer> 
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = lightbox.querySelector('.lb-img');
+      const lbCaption = lightbox.querySelector('.lb-caption');
+      function openLB(src, caption, alt=''){
+        lbImg.src = src; lbImg.alt = alt; lbCaption.textContent = caption || ''; lightbox.style.display = 'flex'; lightbox.setAttribute('aria-hidden','false');
+      }
+      function closeLB(){ lightbox.style.display = 'none'; lightbox.setAttribute('aria-hidden','true'); lbImg.src=''; lbCaption.textContent=''; }
+
+      document.querySelectorAll('.card-img').forEach(el=>{
+        el.addEventListener('click', ()=> openLB(el.dataset.src || getComputedStyle(el).backgroundImage.replace(/url\((?:\"|\')?(.*?)(?:\"|\')?\)/,'$1'), el.dataset.credit || ''));
+        el.addEventListener('keydown', (e)=>{ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); openLB(el.dataset.src || getComputedStyle(el).backgroundImage.replace(/url\((?:\"|\')?(.*?)(?:\"|\')?\)/,'$1'), el.dataset.credit || ''); } });
+      });
+
+      document.querySelectorAll('.gallery-item').forEach(el=>{
+        const img = el.querySelector('img');
+        el.addEventListener('click', ()=> openLB(img.src, el.dataset.credit, img.alt));
+        el.addEventListener('keydown', (e)=>{ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); openLB(img.src, el.dataset.credit, img.alt); } });
+      });
+
+      document.querySelector('.lb-close').addEventListener('click', closeLB);
+      lightbox.addEventListener('click', (e)=>{ if (e.target === lightbox) closeLB(); });
+      document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') closeLB(); });
+
+      // Small helper to show a replacement note
+      function addReplacementNote(container, text='Image replaced for quality'){
+        if (!container) return;
+        const target = (container.querySelector && container.querySelector('.card-body')) || container;
+        if (target.querySelector('.replacement-note')) return;
+        const note = document.createElement('div'); note.className = 'replacement-note'; note.textContent = text; note.setAttribute('role','status'); note.setAttribute('aria-live','polite');
+        target.appendChild(note);
+      }
+
+      // Helper: apply fallback background or gradient
+      function applyFallbackBackground(el, fallback){
+        if (fallback){ el.style.backgroundImage = `url('${fallback}')`; }
+        else { el.style.backgroundImage = 'linear-gradient(135deg,#f2f4f6,#d9d6d0)'; el.classList.add('no-image'); }
+        const card = el.closest('.info-card') || el.closest('.event-card') || el.closest('.gallery-item') || el;
+        addReplacementNote(card);
+      }
+
+      // Check background-image elements (divs) for load errors or low-res
+      function checkBackgroundImage(el, minW=400, minH=250, fallback){
+        const bg = getComputedStyle(el).backgroundImage || '';
+        const m = bg.match(/url\((?:\"|\')?(.*?)(?:\"|\')?\)/);
+        if (!m || !m[1]) return; const src = m[1];
+        const tester = new Image();
+        tester.onload = function(){ if (this.naturalWidth < minW || this.naturalHeight < minH) { applyFallbackBackground(el, fallback || el.dataset.fallback); } };
+        tester.onerror = function(){ applyFallbackBackground(el, fallback || el.dataset.fallback); };
+        tester.src = src;
+      }
+
+      // Check <img> elements for errors or low-res and swap
+      function checkImg(img, minW=300, minH=200, fallback){
+        const fb = fallback || img.dataset.fallback || 'pphoto/Kelantan Backgorund.jpeg';
+        img.onerror = function(){ if (img.src !== fb) { img.src = fb; img.classList.add('replaced'); addReplacementNote(img.closest('.gallery-item') || img.parentElement); } else { addReplacementNote(img.closest('.gallery-item') || img.parentElement); } };
+        img.onload = function(){ if (this.naturalWidth < minW || this.naturalHeight < minH) { img.onerror(); } };
+        // In case image already loaded
+        if (img.complete){ if (img.naturalWidth === 0) img.onerror(); else if (img.naturalWidth < minW) img.onerror(); }
+      }
+
+      // Run checks on header image, cards and gallery
+      const headerImg = document.querySelector('.header-bg-img');
+      if (headerImg) checkImg(headerImg, 1200, 420, headerImg.dataset.fallback || 'pphoto/Kelantan Backgorund.jpeg');
+
+      document.querySelectorAll('.card-img').forEach(el => { checkBackgroundImage(el, 700, 400, el.dataset.fallback || 'pphoto/Kelantan Backgorund.jpeg'); });
+      document.querySelectorAll('.events-grid .card-img').forEach(el => { checkBackgroundImage(el, 700, 400, el.dataset.fallback || 'pphoto/Kelantan Backgorund.jpeg'); });
+
+      document.querySelectorAll('.gallery-item img').forEach(img => { checkImg(img, 400, 200, img.dataset.fallback || 'pphoto/Kelantan Backgorund.jpeg'); });
+
+      // Animated counters
+      const counters = document.querySelectorAll('.stat-number');
+      const animateCounters = function(){
+        counters.forEach(c=>{
+          const target = +c.dataset.target;
+          let current = 0;
+          const step = Math.max(1, Math.floor(target/60));
+          const timer = setInterval(()=>{
+            current += step; c.textContent = current;
+            if (current >= target){ c.textContent = target; clearInterval(timer); }
+          }, 15);
+        });
+      };
+      // Reveal events when visible
+      const events = document.querySelectorAll('.event-card');
+      const obs = new IntersectionObserver((entries, o)=>{
+        entries.forEach(e=>{
+          if (e.isIntersecting){
+            e.target.style.transform = 'translateY(0)'; e.target.style.opacity = 1; o.unobserve(e.target);
+          }
+        });
+      }, {threshold: 0.2});
+
+      events.forEach(ev=>{ ev.style.transform='translateY(14px)'; ev.style.opacity=0; ev.style.transition='all 420ms cubic-bezier(.2,.9,.3,1)'; obs.observe(ev); });
+
+      // Start counters when stats visible
+      const statsRow = document.querySelector('.stats-row');
+      if (statsRow){
+        const sObs = new IntersectionObserver((entries,sO)=>{
+          entries.forEach(en=>{ if (en.isIntersecting){ animateCounters(); sO.unobserve(en.target); } });
+        }, {threshold: 0.25});
+        sObs.observe(statsRow);
+      }
+
+    });
+    </script>
+</body>
+</html>
